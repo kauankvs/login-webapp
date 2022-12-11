@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { empty } from 'rxjs';
 
 @Component({
   selector: 'app-registro',
@@ -9,12 +10,13 @@ import { FormBuilder } from '@angular/forms';
 })
 export class RegistroComponent implements OnInit {
 
-  modeloUsuario = this.formBuilder.group({
-    nome: '',
-    sobrenome: '',
-    email: '',
-    dataDeNascimento: '',
-    senha: ''
+
+  formulario = this.formBuilder.group({
+    nome: null,       
+    sobrenome: null,  
+    email: null,      
+    dataDeNascimento: null,     
+    senha: null      
   });
 
   constructor(private formBuilder: FormBuilder) { }
@@ -23,6 +25,7 @@ export class RegistroComponent implements OnInit {
 
   onSubmit(): void
   {
-    console.log();
+    console.log(this.formulario.value);
+    this.formulario.reset()
   }
 }

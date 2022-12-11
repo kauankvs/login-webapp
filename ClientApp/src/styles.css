@@ -11,3 +11,28 @@ code {
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
+
+.formulario {
+    margin: 20px 35%;
+    margin-top: 5%;
+    padding: 10px;
+    background-color: bisque;
+    text-align: center;
+}
+
+.formulario-input {
+    margin-top: 30px;
+}
+
+.botao-submeter {
+    margin-bottom: 10px;
+}
+
+
+label {
+    display: block;
+}
+
+body {
+  background-color: beige;
+}

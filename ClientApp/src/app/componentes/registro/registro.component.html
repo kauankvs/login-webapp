@@ -1,6 +1,6 @@
 <div class="formulario">
-  <h4>Registre sua conta:</h4>
-  <form [formGroup]="modeloUsuario" (ngSubmit)="onSubmit()">
+  <h4>Crie sua conta:</h4>
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
     <div class="formulario-input">
       <label for="nome">Nome:</label>
       <input type="text" name="nome" id="nome" formControlName="nome" required>
@@ -18,7 +18,7 @@
 
     <div class="formulario-input">
       <label for="nascimento">Data de Nascimento:</label>
-      <input type="date" name="nascimento" id="nascimento" formControlName="dataDeNascimento" required>
+      <input class="calendario" type="date" name="nascimento" id="nascimento" formControlName="dataDeNascimento" required>
     </div>
 
     <div class="formulario-input">
@@ -26,8 +26,8 @@
       <input type="password" name="senha" id="senha" formControlName="senha" required>
     </div>
 
-    <div class="formulario-input">
-      <input type="submit" value="Salvar">
+    <div class="formulario-input botao-submeter">
+      <input type="submit" value="Criar conta">
     </div>
   </form>
 </div>

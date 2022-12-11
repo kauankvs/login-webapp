@@ -1,0 +1,20 @@
+<div class="formulario">
+  <h4>Faça login:</h4>
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+
+    <div class="formulario-input">
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" formControlName="email" required>
+    </div>
+
+    <div class="formulario-input">
+      <label for="senha">Senha:</label>
+      <input type="password" name="senha" id="senha" formControlName="senha" required>
+    </div>
+
+    <div class="formulario-input">
+      <input type="submit" value="Fazer Login">
+    </div>
+  </form>
+</div>
+
