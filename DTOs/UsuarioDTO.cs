@@ -12,6 +12,9 @@ namespace LoginWebApp.DTOs
         [DataType(DataType.EmailAddress, ErrorMessage = "Esse campo deve conter um email!")]
         public string Email { get; set; }
         [Required(ErrorMessage = "Campo obrigatório!")]
+        [DataType(DataType.Date)]
+        public DateTime DataDeNascimento { get; set; }
+        [Required(ErrorMessage = "Campo obrigatório!")]
         [DataType(DataType.Password)]
         public string Senha { get; set; }
     }

@@ -6,6 +6,7 @@
         public string Nome { get; set; }
         public string Sobrenome { get; set; }
         public string Email { get; set; }
+        public DateTime DataDeNascimento { get; set; }
         public byte[] SenhaHash { get; set; }
         public byte[] SenhaSalt { get; set; }
         public DateTime DataDeCriacao { get; set; }

@@ -30,11 +30,13 @@ namespace LoginWebApp.Services
                 Nome = usuarioDTO.Nome,
                 Sobrenome = usuarioDTO.Sobrenome,
                 Email = usuarioDTO.Email,
+                DataDeNascimento = usuarioDTO.DataDeNascimento,
                 SenhaHash = senhaHash,
                 SenhaSalt = senhaSalt,
                 DataDeCriacao = DateTime.Now,
                 Papel = Papel.Cliente
             };
+
             await _context.Usuarios.AddAsync(usuario);
             await _context.SaveChangesAsync();
             return new CreatedResult(nameof(UsuarioController), usuario);
