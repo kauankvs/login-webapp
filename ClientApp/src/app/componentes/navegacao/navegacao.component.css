@@ -1,0 +1,28 @@
+.nav {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: #f57c00;
+  color: #fff;
+  display: flex;
+  padding: 0 16px;
+  align-items: center;
+  height: 56px;
+  font: 500 20px/32px Roboto, "Helvetica Neue", sans-serif;
+}
+
+h4 {
+  flex: 4;
+  justify-content: flex-start;
+  margin: 0;
+}
+
+nav {
+    flex: 2;
+    justify-items: flex-end;
+}
+
+a {
+  margin-right: 40px;
+}
+

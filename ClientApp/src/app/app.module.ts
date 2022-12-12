@@ -6,13 +6,15 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { LoginComponent } from './componentes/login/login.component';
+import { NavegacaoComponent } from './componentes/navegacao/navegacao.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistroComponent,
-    LoginComponent
+    LoginComponent,
+    NavegacaoComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

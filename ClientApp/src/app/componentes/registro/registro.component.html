@@ -1,33 +1,33 @@
 <div class="formulario">
-  <h4>Crie sua conta:</h4>
+  <h4 class="titulo-form">Crie sua conta:</h4>
   <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
     <div class="formulario-input">
       <label for="nome">Nome:</label>
-      <input type="text" name="nome" id="nome" formControlName="nome" required>
+      <input class="area-input" type="text" name="nome" id="nome" formControlName="nome" required>
     </div>
 
     <div class="formulario-input">
       <label for="sobrenome">Sobrenome:</label>
-      <input type="text" name="sobrenome" id="sobrenome" formControlName="sobrenome" required>
+      <input class="area-input" type="text" name="sobrenome" id="sobrenome" formControlName="sobrenome" required>
     </div>
 
     <div class="formulario-input">
       <label for="email">Email:</label>
-      <input type="email" name="email" id="email" formControlName="email" required>
+      <input class="area-input" type="email" name="email" id="email" formControlName="email" required>
     </div>
 
     <div class="formulario-input">
       <label for="nascimento">Data de Nascimento:</label>
-      <input class="calendario" type="date" name="nascimento" id="nascimento" formControlName="dataDeNascimento" required>
+      <input class="calendario area-input" type="date" name="nascimento" id="nascimento" formControlName="dataDeNascimento" required>
     </div>
 
     <div class="formulario-input">
       <label for="senha">Senha:</label>
-      <input type="password" name="senha" id="senha" formControlName="senha" required>
+      <input class="area-input" type="password" name="senha" id="senha" formControlName="senha" required>
     </div>
 
-    <div class="formulario-input botao-submeter">
-      <input type="submit" value="Criar conta">
+    <div class="formulario-input">
+      <input class="botao-submeter" type="submit" value="Criar conta">
     </div>
   </form>
 </div>
