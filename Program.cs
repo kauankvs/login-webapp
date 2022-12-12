@@ -34,6 +34,13 @@ builder.Services.AddAuthentication(auth =>
             ValidateAudience = false
         };
     });
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(5);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
 
 var app = builder.Build();
 
@@ -43,7 +50,17 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+app.UseSession();
+app.Use(async (context, next) =>
+{
+    string token = context.Session.GetString("Token");
+    if (token != null)
+        context.Request.Headers.Add("Authorization", "Bearer " + token);
 
+    await next();
+});
+app.UseAuthentication();
+app.UseAuthorization();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();

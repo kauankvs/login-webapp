@@ -53,7 +53,7 @@ namespace LoginWebApp.Services
                 return new ForbidResult();
 
             var token = await _auth.CriarTokenAsync(usuario.Email);
-            return new OkObjectResult(token);
+            return token;
         }
 
         public async Task<ActionResult<Usuario>> DeletarUsuarioAsync(string email, string senha)

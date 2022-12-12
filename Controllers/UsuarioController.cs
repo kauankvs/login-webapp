@@ -27,8 +27,12 @@ namespace LoginWebApp.Controllers
         [AllowAnonymous]
         [Route("login")]
         public async Task<ActionResult<string>> LoginAsync([FromForm] EmailESenhaDTO usuario)
-            => await _service.LoginAsync(usuario);
-
+        {
+            var token = await _service.LoginAsync(usuario);
+            HttpContext.Session.SetString("Token", token.ToString());
+            return new OkObjectResult(token);
+        }
+           
         [HttpDelete]
         [Authorize]
         [Route("deletar")]
