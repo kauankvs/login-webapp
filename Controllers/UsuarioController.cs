@@ -56,5 +56,11 @@ namespace LoginWebApp.Controllers
         [Route("alterar/role")]
         public async Task<ActionResult<Usuario>> MudarPapelDaContaAsync([FromForm] string emailDoUsuario, [FromForm] string senha)
             => await _service.MudarPapelDaContaAsync(emailDoUsuario, senha);
+
+        [HttpGet]
+        [Authorize]
+        [Route("minha-conta")]
+        public async Task<ActionResult<List<string>>> SelecionarMinhaConta()
+            => await _service.SelecionarMinhaConta(User.FindFirstValue(ClaimTypes.Email));
     }
 }

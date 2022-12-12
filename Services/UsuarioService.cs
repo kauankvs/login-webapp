@@ -114,5 +114,20 @@ namespace LoginWebApp.Services
             }
             return new BadRequestResult();
         }
+
+        public async Task<ActionResult<List<string>>> SelecionarMinhaConta(string email) 
+        {
+            Usuario usuario = await _context.Usuarios.AsNoTracking().FirstOrDefaultAsync(user => user.Email.Equals(email));
+            List<string> usuarioDisplay = new List<string>
+            {
+                usuario.Nome,
+                usuario.Sobrenome,
+                usuario.Email,
+                usuario.DataDeNascimento.ToString(),
+                usuario.Papel.ToString(),
+                usuario.DataDeCriacao.ToString(),
+            };
+            return new OkObjectResult(usuarioDisplay);
+        }
     }
 }
