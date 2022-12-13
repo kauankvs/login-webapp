@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { empty } from 'rxjs';
+import { ComunicacaoServidorService } from '../../services/comunicacao-servidor.service';
 
 @Component({
   selector: 'app-registro',
@@ -10,8 +11,8 @@ import { empty } from 'rxjs';
 })
 export class RegistroComponent implements OnInit {
 
-
-  formulario = this.formBuilder.group({
+  private httpService: ComunicacaoServidorService;
+  formulario: FormGroup = this.formBuilder.group({
     nome: null,       
     sobrenome: null,  
     email: null,      
@@ -19,13 +20,20 @@ export class RegistroComponent implements OnInit {
     senha: null      
   });
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, httpService: ComunicacaoServidorService) {
+    this.httpService = httpService;
+  }
 
   ngOnInit(): void { }
 
   onSubmit(): void
   {
-    console.log(this.formulario.value);
-    this.formulario.reset()
+    const formData = new FormData()
+    formData.append("nome", this.formulario.get("nome")?.value);
+    formData.append("sobrenome", this.formulario.get("sobrenome")?.value);
+    formData.append("email", this.formulario.get("email")?.value);
+    formData.append("dataDeNascimento", this.formulario.get("dataDeNascimento")?.value);
+    formData.append("senha", this.formulario.get("senha")?.value);
+    this.httpService.registrarHttp(formData);
   }
 }
