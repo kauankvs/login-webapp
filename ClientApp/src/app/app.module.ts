@@ -7,10 +7,12 @@ import { AppComponent } from './app.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { NavegacaoComponent } from './componentes/navegacao/navegacao.component';
+import { PerfilComponent } from './componentes/perfil/perfil.component';
 
 const routes: Routes = [
   { path: "registro", component: RegistroComponent },
-  { path: "login", component: LoginComponent }
+  { path: "login", component: LoginComponent },
+  { path: "minha-conta", component: PerfilComponent },
 ];
 
 @NgModule({
@@ -18,7 +20,8 @@ const routes: Routes = [
     AppComponent,
     RegistroComponent,
     LoginComponent,
-    NavegacaoComponent
+    NavegacaoComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
