@@ -8,18 +8,28 @@ import { ComunicacaoServidorService } from '../../services/comunicacao-servidor.
   templateUrl: './perfil.component.html',
   styleUrls: ['./perfil.component.css']
 })
-export class PerfilComponent implements OnInit {
+export class PerfilComponent implements OnInit
+{
   private readonly httpService: ComunicacaoServidorService;
-  private usuarioDisplay?: UsuarioDisplay;
+  usuarioDisplay: UsuarioDisplay = {
+    nome: '',
+    sobrenome: '',
+    email: '',
+    dataDeNascimento: '',
+    papel: '',
+    dataDeCriacao: '',
+  };
 
-  constructor(private service: ComunicacaoServidorService) {
+
+  constructor(private service: ComunicacaoServidorService)
+  {
     this.httpService = service;
+    this.httpService.selecionarPerfilHttp().subscribe((data) => this.usuarioDisplay = data);
   }
 
-  ngOnInit(): void {
-    this.httpService.selecionarPerfilHttp().subscribe(response => {
-      this.usuarioDisplay = response;
-    });
+  ngOnInit(): void
+  {
   }
+
   
 }

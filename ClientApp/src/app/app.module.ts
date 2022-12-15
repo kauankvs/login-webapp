@@ -11,7 +11,7 @@ import { PerfilComponent } from './componentes/perfil/perfil.component';
 
 const routes: Routes = [
   { path: "registro", component: RegistroComponent },
-  { path: "login", component: LoginComponent },
+  { path: "", component: LoginComponent },
   { path: "minha-conta", component: PerfilComponent },
 ];
 

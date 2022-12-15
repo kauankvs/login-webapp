@@ -23,7 +23,7 @@ namespace LoginWebApp.Controllers
         public async Task<ActionResult<Usuario>> RegistrarAsync([FromForm] UsuarioDTO usuario)
             => await _service.RegistrarAsync(usuario);
 
-        [HttpGet]
+        [HttpPost]
         [AllowAnonymous]
         [Route("login")]
         public async Task<ActionResult<string>> LoginAsync([FromForm] EmailESenhaDTO usuario)
