@@ -41,6 +41,11 @@ builder.Services.AddSession(options =>
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
+builder.Services.AddCors(options => options.AddPolicy(name: "LoginOrigins",
+    policy =>
+    {
+    policy.WithOrigins("https://localhost:7214", "https://localhost:44470", "http://localhost:7214", "http://localhost:44470").AllowAnyMethod().AllowAnyHeader();
+    }));
 
 var app = builder.Build();
 
@@ -59,6 +64,7 @@ app.Use(async (context, next) =>
 
     await next();
 });
+app.UseCors("LoginOrigins");
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseHttpsRedirection();

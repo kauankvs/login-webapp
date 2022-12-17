@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, map, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { UsuarioDisplay } from '../interfaces/usuario-display';
 
 @Injectable({
@@ -40,6 +40,6 @@ export class ComunicacaoServidorService {
 
   selecionarPerfilHttp(): Observable<UsuarioDisplay> {
     this.headers.set('Access-Control-Allow-Origin', 'https://localhost:7214/usuario/minha-conta');
-    return this.httpClient.get<UsuarioDisplay>(this.SERVER_URL + "/minha-conta", { headers: this.headers, withCredentials: true });
+    return this.httpClient.get<UsuarioDisplay>(this.SERVER_URL + "/minha-conta", { headers: this.headers });
   }
 }
