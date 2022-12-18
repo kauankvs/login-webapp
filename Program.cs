@@ -44,7 +44,7 @@ builder.Services.AddSession(options =>
 builder.Services.AddCors(options => options.AddPolicy(name: "LoginOrigins",
     policy =>
     {
-    policy.WithOrigins("https://localhost:7214", "https://localhost:44470", "http://localhost:7214", "http://localhost:44470").AllowAnyMethod().AllowAnyHeader();
+    policy.WithOrigins("https://localhost:44470").AllowAnyMethod().AllowAnyHeader().AllowCredentials();
     }));
 
 var app = builder.Build();
@@ -70,13 +70,7 @@ app.UseAuthorization();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
-
-/*
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller}/{action=Index}/{id?}");
-*/
-
+app.MapControllers();
 app.MapFallbackToFile("index.html"); ;
 
 app.Run();

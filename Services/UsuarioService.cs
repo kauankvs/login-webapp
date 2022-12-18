@@ -30,7 +30,7 @@ namespace LoginWebApp.Services
                 Nome = usuarioDTO.Nome,
                 Sobrenome = usuarioDTO.Sobrenome,
                 Email = usuarioDTO.Email,
-                DataDeNascimento = usuarioDTO.DataDeNascimento,
+                Idade = usuarioDTO.Idade,
                 SenhaHash = senhaHash,
                 SenhaSalt = senhaSalt,
                 DataDeCriacao = DateTime.Now,
@@ -123,9 +123,9 @@ namespace LoginWebApp.Services
                 usuario.Nome,
                 usuario.Sobrenome,
                 usuario.Email,
-                usuario.DataDeNascimento.ToString(),
+                usuario.Idade.ToString(),
                 usuario.Papel.ToString(),
-                usuario.DataDeCriacao.ToString(),
+                usuario.DataDeCriacao.ToShortDateString(),
             };
             return new OkObjectResult(usuarioDisplay);
         }

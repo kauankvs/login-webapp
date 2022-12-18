@@ -16,7 +16,7 @@ export class RegistroComponent implements OnInit {
     nome: null,       
     sobrenome: null,  
     email: null,      
-    dataDeNascimento: null,     
+    idade: null,     
     senha: null      
   });
 
@@ -32,7 +32,7 @@ export class RegistroComponent implements OnInit {
     formData.append("nome", this.formulario.get("nome")?.value);
     formData.append("sobrenome", this.formulario.get("sobrenome")?.value);
     formData.append("email", this.formulario.get("email")?.value);
-    formData.append("dataDeNascimento", this.formulario.get("dataDeNascimento")?.value);
+    formData.append("idade", this.formulario.get("idade")?.value);
     formData.append("senha", this.formulario.get("senha")?.value);
     this.httpService.registrarHttp(formData);
   }

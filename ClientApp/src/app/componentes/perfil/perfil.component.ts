@@ -15,7 +15,7 @@ export class PerfilComponent implements OnInit
     nome: '',
     sobrenome: '',
     email: '',
-    dataDeNascimento: '',
+    idade: '',
     papel: '',
     dataDeCriacao: '',
   };

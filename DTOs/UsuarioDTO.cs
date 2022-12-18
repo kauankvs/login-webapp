@@ -13,7 +13,7 @@ namespace LoginWebApp.DTOs
         public string Email { get; set; }
         [Required(ErrorMessage = "Campo obrigatório!")]
         [DataType(DataType.Date)]
-        public DateTime DataDeNascimento { get; set; }
+        public int Idade { get; set; }
         [Required(ErrorMessage = "Campo obrigatório!")]
         [DataType(DataType.Password)]
         public string Senha { get; set; }

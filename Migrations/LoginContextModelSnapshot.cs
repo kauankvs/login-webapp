@@ -33,12 +33,12 @@ namespace LoginWebApp.Migrations
                     b.Property<DateTime>("DataDeCriacao")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DataDeNascimento")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Idade")
+                        .HasColumnType("int");
 
                     b.Property<string>("Nome")
                         .IsRequired()
